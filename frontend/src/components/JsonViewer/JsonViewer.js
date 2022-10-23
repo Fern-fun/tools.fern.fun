@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./JsonViewer.scss";
+import Modal from "./Modal/Modal";
 
 const isString = (val) => {
   return typeof val === "string";
@@ -39,7 +40,7 @@ function createChildrenItem(key, value, children, type) {
     return (
       <div key={key}>
         <span>
-          {key}
+          <span className="">{}</span>{key}
           {" { "}
           <span className="jv-Number">{Object.keys(value).length}</span>
           {" }"}
@@ -115,18 +116,76 @@ const handleItem = (key, value) => {
   return createItem(key, value);
 };
 
+function validateUrl(value) {
+  return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(
+    value
+  );
+}
+
 function JsonViewer({ json }) {
   const [viewer, setViewer] = React.useState([]);
+  const [url, setUrl] = React.useState("");
+  const [rawJson, setRawJson] = React.useState("");
+  const [visable, setVisable] = React.useState(true);
 
   React.useEffect(() => {
-    for (let item in json) {
-      let key = item,
-        value = json[item];
-      setViewer((x) => [...x, handleItem(key, value)]);
+    if (json !== "") {
+      for (let item in json) {
+        let key = item,
+          value = json[item];
+        setViewer((x) => [...x, handleItem(key, value)]);
+      }
     }
   }, []);
 
-  return <div className="jv-con">{viewer}</div>;
+  const getJson = () => {
+    if (validateUrl(url)) {
+      fetch(url)
+        .then((req) => req.json())
+        .then((data) => {
+          for (let item in data) {
+            let key = item,
+              value = data[item];
+            setViewer((x) => [...x, handleItem(key, value)]);
+          }
+          setVisable(false);
+        });
+    } else if (rawJson !== "") {
+      for (let item in JSON.parse(rawJson)) {
+        let key = item,
+          value = JSON.parse(rawJson)[item];
+        setViewer((x) => [...x, handleItem(key, value)]);
+      }
+      setVisable(false);
+    }
+  };
+
+  return (
+    <>
+      {!visable ? (
+        <div className="jv-con">{viewer}</div>
+      ) : (
+        <Modal
+          visable={visable}
+          title={""}
+          content={
+            <>
+              <input
+                type="text"
+                placeholder="url"
+                onChange={(e) => setUrl(e.target.value)}
+              />
+              <textarea
+                placeholder="json"
+                onChange={(e) => setRawJson(e.target.value)}
+              ></textarea>
+              <button onClick={getJson}>Look</button>
+            </>
+          }
+        />
+      )}
+    </>
+  );
 }
 
 export default JsonViewer;
