@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./JsonViewer.scss";
-import Modal from "./Modal/Modal";
+import Modal from "../Modal/Modal";
 
 const isString = (val) => {
   return typeof val === "string";
@@ -40,7 +40,8 @@ function createChildrenItem(key, value, children, type) {
     return (
       <div key={key}>
         <span>
-          <span className="">{}</span>{key}
+          <span className="">{}</span>
+          {key}
           {" { "}
           <span className="jv-Number">{Object.keys(value).length}</span>
           {" }"}
