@@ -1,0 +1,7 @@
+@use "./variables.scss" as v;
+
+.navbar {
+  width: 100%;
+  height: 100px;
+  background-color: v.$navbarBackground;
+}

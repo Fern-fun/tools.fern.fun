@@ -1,4 +1,9 @@
+@use "./variables.scss" as v;
+
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+@import url("./slider.scss");
+@import url("./navbar.scss");
+@import url("./home.scss");
 
 * {
   box-sizing: border-box;
@@ -8,6 +13,26 @@
 }
 
 body {
-  background-color: #282a36;
+  background-color: v.$primary;
   color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: v.$secondary;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: v.$secondary;
 }

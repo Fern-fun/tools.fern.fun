@@ -1,0 +1,151 @@
+@use "./variables.scss" as v;
+
+.homePanel {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-rows: 400px 1fr;
+
+  .homeTitle {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+    div {
+      width: fit-content;
+
+      margin-top: 50px;
+      span {
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        sub {
+          color: v.$secondary;
+          font-size: 14px;
+          font-weight: normal;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  .homeContent {
+    display: grid;
+
+    &:first-child {
+      grid-template-rows: auto 500px;
+    }
+
+    .homeContentElement {
+      display: flex;
+      justify-content: center;
+
+      #title {
+        text-align: center;
+        width: 100%;
+        height: fit-content;
+        span {
+          font-size: 1.4rem;
+          color: v.$altColor;
+        }
+      }
+
+      #lmenu {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        cursor: pointer;
+
+        div {
+          display: grid;
+          grid-template-columns: 24px auto;
+
+          justify-items: center;
+          align-items: center;
+          border: none;
+          outline: none;
+          background: none;
+          width: 180px;
+          height: 50px;
+          margin: 15px;
+
+          border: 2px solid v.$primary;
+          border-radius: 20px;
+          background-color: rgba($color: v.$primary, $alpha: 0.8);
+          transition: background-color 0.5s ease-in-out;
+
+          span {
+          }
+
+          img {
+            margin-left: 15px;
+            width: 24px;
+          }
+
+          &:hover {
+            background-color: rgba($color: v.$primary, $alpha: 0.5);
+          }
+        }
+      }
+
+      #centerDiv {
+        position: relative;
+        div {
+          position: absolute;
+          transition: top 0.5s ease-in-out, left 0.5s ease-in-out;
+          transform: translate(-50%, -50%);
+          border: 2px solid v.$secondary;
+          border-radius: 20px;
+          background-color: rgba($color: v.$secondary, $alpha: 0.4);
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+
+    .hc-f {
+      display: grid;
+      margin-top: -20px;
+
+      width: 100%;
+      height: 600px;
+    }
+
+    .green {
+      background-color: v.$homeFirstElement;
+    }
+
+    .yellow {
+      background-color: v.$homeSecondElement;
+      grid-template-rows: 100px 1fr;
+    }
+  }
+
+  .arrow {
+    width: fit-content;
+    transform: rotate(90deg);
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+
+    animation-name: arrowAnim;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+  }
+}
+
+@keyframes arrowAnim {
+  0% {
+    bottom: 0%;
+  }
+  50% {
+    bottom: 2.5%;
+  }
+  100% {
+    bottom: 0%;
+  }
+}

@@ -1,0 +1,9 @@
+@use "../../styles/variables.scss" as v;
+
+.borderRadiusGeneratorPanel {
+  margin: 15px;
+  .borderRadiusGeneratorBox {
+    border: 2px solid v.$secondary;
+    background-color: rgba($color: v.$secondary, $alpha: 0.3);
+  }
+}

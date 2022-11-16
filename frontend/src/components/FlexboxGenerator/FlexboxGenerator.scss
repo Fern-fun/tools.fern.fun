@@ -1,0 +1,18 @@
+.flexBoxGenPanel {
+  .flexBoxGenBoard {
+    border: 2px solid #598188;
+
+    width: 80vw;
+    height: 80vw;
+    padding: 15px;
+
+    overflow: hidden;
+
+    div {
+      border-radius: 15px;
+      width: 100px;
+
+      margin: 15px;
+    }
+  }
+}
