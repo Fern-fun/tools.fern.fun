@@ -5,7 +5,7 @@
   height: 100%;
 
   display: grid;
-  grid-template-rows: 400px 1fr;
+  grid-template-rows: 400px auto;
 
   .homeTitle {
     display: flex;
@@ -60,7 +60,9 @@
         justify-content: center;
         cursor: pointer;
 
-        div {
+        a {
+          text-decoration: none;
+          color: v.$color;
           display: grid;
           grid-template-columns: 24px auto;
 
@@ -77,9 +79,6 @@
           border-radius: 20px;
           background-color: rgba($color: v.$primary, $alpha: 0.8);
           transition: background-color 0.5s ease-in-out;
-
-          span {
-          }
 
           img {
             margin-left: 15px;
@@ -104,6 +103,10 @@
           width: 100px;
           height: 100px;
         }
+      }
+
+      #codeTag {
+        margin: 15px;
       }
     }
 

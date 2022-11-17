@@ -1,37 +1,17 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
+import { CodeBlock, dracula } from "react-code-blocks";
+import { Link } from "react-router-dom";
+
+import Arrow from "../../components/Arrow/Arrow";
 
 function Home() {
-  const [arrowDisplay, setArrowDisplay] = React.useState("flex");
-  const [scrollPosition, setScrollPosition] = React.useState(0);
-
   const [hoverTop, setHoverTop] = React.useState(50);
   const [hoverLeft, setHoverLeft] = React.useState(50);
 
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  React.useEffect(() => {
-    if (scrollPosition > 0) {
-      setArrowDisplay("none");
-    } else {
-      setArrowDisplay("flex");
-    }
-  }, [scrollPosition]);
-
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-  };
-
   const hoverHandler = () => {
-    setHoverLeft(Math.floor(Math.random() * (90 - 10 + 1) + 10));
-    setHoverTop(Math.floor(Math.random() * (90 - 10 + 1) + 10));
+    setHoverLeft(Math.floor(Math.random() * (80 - 10 + 1) + 10));
+    setHoverTop(Math.floor(Math.random() * (80 - 10 + 1) + 10));
   };
 
   return (
@@ -64,41 +44,39 @@ function Home() {
             <span>We provide some tools to improve your efficiently</span>
           </div>
           <div id="lmenu">
-            <div>
+            <Link to="/html">
               <img
                 alt="html"
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
               />
               <span>HTML</span>
-            </div>
-            <div>
+            </Link>
+            <Link to="/css">
               <img
                 alt="html"
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
               />
               <span>CSS</span>
-            </div>
-            <div>
+            </Link>
+            <Link to="/sql">
               <img
-                alt="html"
+                alt="MySQL"
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"
               />
               <span>SQL</span>
-            </div>
-            <div>
+            </Link>
+            <Link to="/py">
               <img
-                alt="html"
+                alt="py"
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
               />
               <span>Pyhon</span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="arrow" style={{ display: arrowDisplay }}>
-        <img src="img/arrow.svg" alt="arrow" />
-      </div>
+      <Arrow />
 
       <div className="homeContent">
         <div className="homeContentElement hc-f yellow">
@@ -110,6 +88,17 @@ function Home() {
               onMouseEnter={hoverHandler}
               style={{ top: `${hoverTop}%`, left: `${hoverLeft}%` }}
             ></div>
+          </div>
+          <div id="codeTag">
+            <CodeBlock
+              style={{ marginBottom: "15px" }}
+              text={
+                "#centerDiv {\n  position: relative;\n}\n#centerDiv div {\n position: absolute;\n top: 50%;\n left: 50%;\n transform: translate(-50%, -50%);\n}"
+              }
+              language={"css"}
+              theme={dracula}
+              codeBlock
+            />
           </div>
         </div>
       </div>

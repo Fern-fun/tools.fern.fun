@@ -1,8 +1,6 @@
 import React from "react";
 import { CodeBlock, dracula } from "react-code-blocks";
 
-import "./TableGenerator.scss";
-
 function TableGenerator() {
   const [titles, setTitles] = React.useState("");
   const [table, setTable] = React.useState("");
@@ -27,23 +25,32 @@ function TableGenerator() {
   };
 
   return (
-    <div className="tableGenPanel">
-      <div className="tableGenForm">
-        <label>Column Titles</label>
-        <diva>
-          <input
-            type="text"
-            placeholder="name, surrname, adress"
-            onChange={(e) => setTitles(e.target.value)}
-          />
-          <button onClick={generateTable}>Generate</button>
-        </diva>
+    <>
+      <div className="pagePanelTitle">
+        <div>
+          <div id="title">
+            <span>Table generator</span>
+          </div>
+
+          <div id="content">
+            <label>Column Titles</label>
+            <div>
+              <input
+                type="text"
+                placeholder="name, surrname, adress"
+                onChange={(e) => setTitles(e.target.value)}
+              />
+              <br />
+              <button onClick={generateTable}>Generate</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="codeTag">
+      <div id="output">
         <CodeBlock text={table} language={"html"} theme={dracula} codeBlock />
       </div>
-    </div>
+    </>
   );
 }
 

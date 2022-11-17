@@ -1,0 +1,132 @@
+@use "./variables.scss" as v;
+
+.pagePanel {
+  display: grid;
+  grid-template-rows: 400px;
+
+  .contentContainer {
+    height: 400px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: v.$mobile-width) {
+      display: flex;
+      flex-direction: column;
+
+      .pagePanelTitle {
+        margin: 25px;
+      }
+    }
+
+    height: 100%;
+    width: 100%;
+
+    .pagePanelTitle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      #title {
+        text-align: center;
+        font-size: 1.1rem;
+        margin: 15px;
+      }
+
+      #content {
+        width: fit-content;
+        margin: auto;
+
+        label {
+          font-size: 0.8rem;
+          padding: 15px;
+        }
+
+        input {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 100%;
+          border-bottom: 2px solid v.$secondary;
+          color: v.$color;
+
+          margin-bottom: 15px;
+          padding: 15px;
+        }
+
+        button {
+          cursor: pointer;
+          border: none;
+          outline: none;
+          background-color: transparent;
+
+          border: 2px solid v.$secondary;
+          border-radius: 8px;
+          width: 100%;
+
+          color: v.$color;
+          padding: 15px;
+
+          transition: background-color 0.4s ease-in-out;
+
+          &:hover {
+            background-color: rgba($color: v.$secondary, $alpha: 0.2);
+          }
+        }
+
+        select {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 100%;
+          border-bottom: 2px solid v.$secondary;
+          color: v.$color;
+
+          margin-bottom: 15px;
+          padding: 15px;
+
+          option {
+            border: none;
+            outline: none;
+            background-color: #000;
+          }
+        }
+      }
+    }
+
+    #output {
+      max-height: 400px;
+      border-radius: 8px;
+      overflow-y: scroll;
+    }
+
+    .flexBoxGenBoard {
+      padding: 15px;
+
+      overflow: hidden;
+
+      div {
+        border-radius: 15px;
+        width: 100px;
+
+        margin: 15px;
+      }
+    }
+  }
+
+  .blue {
+    background-color: v.$homeThirdElement;
+  }
+
+  .green {
+    background-color: v.$pagesGreen;
+  }
+
+  .orange {
+    background-color: v.$pagesOrange;
+  }
+
+  .red {
+    background-color: v.$pagesRed;
+  }
+}
