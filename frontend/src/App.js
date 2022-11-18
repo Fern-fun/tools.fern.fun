@@ -6,7 +6,7 @@ import Home from "./page/Home/Home";
 import Html from "./page/Html/Html";
 import Py from "./page/Py/Py";
 import Sql from "./page/Sql/Sql";
-import JsonViewer from "./components/JsonViewer/JsonViewer";
+import Json from "./page/Json/Json";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="/sql" element={<Sql />} />
         <Route path="/py" element={<Py />} />
 
-        <Route path="/json-viewer" element={<JsonViewer />} />
+        <Route path="/json" element={<Json />} />
       </Routes>
     </BrowserRouter>
   );

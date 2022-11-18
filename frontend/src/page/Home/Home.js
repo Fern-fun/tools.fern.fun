@@ -58,12 +58,9 @@ function Home() {
               />
               <span>CSS</span>
             </Link>
-            <Link to="/sql">
-              <img
-                alt="MySQL"
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"
-              />
-              <span>SQL</span>
+            <Link to="/json">
+              <img alt="json" src="/img/json.svg" />
+              <span>JSON</span>
             </Link>
             <Link to="/py">
               <img

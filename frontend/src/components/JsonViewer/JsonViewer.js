@@ -139,6 +139,7 @@ function JsonViewer({ json }) {
   }, []);
 
   const getJson = () => {
+    setViewer("");
     if (validateUrl(url)) {
       fetch(url)
         .then((req) => req.json())
@@ -159,32 +160,35 @@ function JsonViewer({ json }) {
   };
 
   return (
-    <div
-      className="jvPanel"
-      style={{
-        paddingTop: "71px",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <input
-          type="text"
-          placeholder="url"
-          onChange={(e) => setUrl(e.target.value)}
-        />
-        <textarea
-          placeholder="json"
-          onChange={(e) => setRawJson(e.target.value)}
-        ></textarea>
-        <button onClick={getJson}>Look</button>{" "}
+    <>
+      <div className="pagePanelTitle">
+        <div id="title">
+          <span>Json Viewer</span>
+        </div>
+        <div className="jvPanel">
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <input
+              type="text"
+              placeholder="url"
+              onChange={(e) => setUrl(e.target.value)}
+            />
+            <textarea
+              placeholder="json"
+              onChange={(e) => setRawJson(e.target.value)}
+            ></textarea>
+            <button onClick={getJson}>Look</button>{" "}
+          </div>
+        </div>
+      </div>
+
+      <div id="output">
         {viewer == "" ? null : (
           <div className="jv-folder" style={{ marginTop: "15px" }}>
             {viewer}
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
 

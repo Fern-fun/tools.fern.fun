@@ -3,11 +3,11 @@
 .pagePanel {
   display: grid;
   grid-template-rows: auto;
+  height: 100%;
 
   .contentContainer {
     padding: 15px;
-    height: 400px;
-
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -93,7 +93,7 @@
           option {
             border: none;
             outline: none;
-            background-color: #000;
+            background-color: #3a3b38;
           }
         }
       }
@@ -103,7 +103,7 @@
       max-height: 600px;
       border-radius: 8px;
       padding: 15px;
-
+      overflow-y: scroll;
       #center {
         display: flex;
         justify-content: center;

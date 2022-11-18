@@ -2,10 +2,10 @@
 
 .homePanel {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   display: grid;
-  grid-template-rows: 400px auto;
+  grid-template-rows: 400px auto minmax(500px, auto);
 
   .homeTitle {
     display: flex;

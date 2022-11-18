@@ -128,12 +128,14 @@ function FlexboxGenerator() {
         >
           {board}
         </div>
-        <CodeBlock
-          text={`display: ${display};\nflex-direction: ${flexDirection};\nflex-wrap: ${flexWrap};\njustify-content: ${justifyContent};\nalign-items: ${alignItems};\nalign-content: ${alignContent};`}
-          language={"css"}
-          theme={dracula}
-          codeBlock
-        />
+        <div>
+          <CodeBlock
+            text={`display: ${display};\nflex-direction: ${flexDirection};\nflex-wrap: ${flexWrap};\njustify-content: ${justifyContent};\nalign-items: ${alignItems};\nalign-content: ${alignContent};`}
+            language={"css"}
+            theme={dracula}
+            codeBlock
+          />
+        </div>
       </div>
     </>
   );
