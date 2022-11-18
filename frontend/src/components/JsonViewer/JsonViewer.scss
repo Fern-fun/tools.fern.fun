@@ -1,3 +1,5 @@
+@use "../../styles/variables.scss" as v;
+
 .jv-con {
   display: flex;
   flex-direction: column;
@@ -43,4 +45,43 @@
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+}
+
+.jvPanel {
+  div {
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      resize: none;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      width: 100%;
+      border-bottom: 2px solid v.$secondary;
+      color: v.$color;
+
+      margin-bottom: 15px;
+      padding: 15px;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      border: 2px solid v.$secondary;
+      border-radius: 8px;
+      width: 100%;
+
+      color: v.$color;
+      padding: 15px;
+
+      transition: background-color 0.4s ease-in-out;
+
+      &:hover {
+        background-color: rgba($color: v.$secondary, $alpha: 0.2);
+      }
+    }
+  }
 }

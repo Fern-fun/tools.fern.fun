@@ -39,7 +39,7 @@ function FlexboxGenerator() {
       <div className="pagePanelTitle">
         <div>
           <div id="title">
-            <span>Table generator</span>
+            <span>Flexbox Generator</span>
           </div>
           <div id="content">
             <div>
@@ -114,7 +114,7 @@ function FlexboxGenerator() {
         </div>
       </div>
 
-      <div>
+      <div id="output">
         <div
           className="flexBoxGenBoard"
           style={{
@@ -129,7 +129,7 @@ function FlexboxGenerator() {
           {board}
         </div>
         <CodeBlock
-          text={`display: ${display},\nflex-direction: ${flexDirection},\nflex-wrap: ${flexWrap},\njustify-content: ${justifyContent},\nalign-items: ${alignItems},\nalignc-content: ${alignContent},`}
+          text={`display: ${display};\nflex-direction: ${flexDirection};\nflex-wrap: ${flexWrap};\njustify-content: ${justifyContent};\nalign-items: ${alignItems};\nalign-content: ${alignContent};`}
           language={"css"}
           theme={dracula}
           codeBlock

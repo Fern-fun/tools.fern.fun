@@ -1,8 +1,9 @@
 @use "./variables.scss" as v;
 
 .slider {
+  margin: 5px;
   -webkit-appearance: none;
-  width: 200px;
+  width: 100%;
   background: rgba($color: v.$secondary, $alpha: 0.5);
   border-radius: 5px;
   -webkit-transition: 0.2s;

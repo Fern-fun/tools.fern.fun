@@ -127,7 +127,6 @@ function JsonViewer({ json }) {
   const [viewer, setViewer] = React.useState([]);
   const [url, setUrl] = React.useState("");
   const [rawJson, setRawJson] = React.useState("");
-  const [visable, setVisable] = React.useState(true);
 
   React.useEffect(() => {
     if (json !== "") {
@@ -149,7 +148,6 @@ function JsonViewer({ json }) {
               value = data[item];
             setViewer((x) => [...x, handleItem(key, value)]);
           }
-          setVisable(false);
         });
     } else if (rawJson !== "") {
       for (let item in JSON.parse(rawJson)) {
@@ -157,35 +155,36 @@ function JsonViewer({ json }) {
           value = JSON.parse(rawJson)[item];
         setViewer((x) => [...x, handleItem(key, value)]);
       }
-      setVisable(false);
     }
   };
 
   return (
-    <>
-      {!visable ? (
-        <div className="jv-con">{viewer}</div>
-      ) : (
-        <Modal
-          visable={visable}
-          title={""}
-          content={
-            <>
-              <input
-                type="text"
-                placeholder="url"
-                onChange={(e) => setUrl(e.target.value)}
-              />
-              <textarea
-                placeholder="json"
-                onChange={(e) => setRawJson(e.target.value)}
-              ></textarea>
-              <button onClick={getJson}>Look</button>
-            </>
-          }
+    <div
+      className="jvPanel"
+      style={{
+        paddingTop: "71px",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <input
+          type="text"
+          placeholder="url"
+          onChange={(e) => setUrl(e.target.value)}
         />
-      )}
-    </>
+        <textarea
+          placeholder="json"
+          onChange={(e) => setRawJson(e.target.value)}
+        ></textarea>
+        <button onClick={getJson}>Look</button>{" "}
+        {viewer == "" ? null : (
+          <div className="jv-folder" style={{ marginTop: "15px" }}>
+            {viewer}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import "./Modal.scss";
 
 function Modal(props) {
-  const { visable, title, content } = props;
+  const { visable, title, content, setVisable } = props;
 
   return (
     <div
