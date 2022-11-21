@@ -86,7 +86,7 @@ function BorderRadiusGenerator() {
         </div>
 
         <CodeBlock
-          text={`border-radius: ${topLeft}px ${topRight}px ${bottomLeft}px ${bottomRight}px`}
+          text={`border-radius: ${topLeft}px ${topRight}px ${bottomLeft}px ${bottomRight}px;`}
           language={"css"}
           theme={dracula}
           codeBlock

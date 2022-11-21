@@ -10,7 +10,9 @@ function Html() {
           <span>HTML</span>
         </div>
       </div>
-      <img src="/img/wave1.svg" alt="wave" />
+      <div className="wave">
+        <img src="/img/wave1.svg" alt="wave" />
+      </div>
 
       <div className="pagePanel">
         <div className="contentContainer blue">

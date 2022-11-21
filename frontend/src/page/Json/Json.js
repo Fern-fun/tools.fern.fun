@@ -10,7 +10,9 @@ function Json() {
           <span>Json</span>
         </div>
       </div>
-      <img src="/img/wave2.svg" alt="wave" />
+      <div className="wave">
+        <img src="/img/wave2.svg" alt="wave" />
+      </div>
 
       <div className="pagePanel">
         <div className="contentContainer green">

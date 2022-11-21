@@ -67,7 +67,7 @@ function Home() {
                 alt="py"
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
               />
-              <span>Pyhon</span>
+              <span>Python</span>
             </Link>
           </div>
         </div>

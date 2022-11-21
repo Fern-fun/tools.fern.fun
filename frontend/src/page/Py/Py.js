@@ -9,7 +9,9 @@ function Py() {
           <span>Python</span>
         </div>
       </div>
-      <img src="/img/wave3.svg" alt="wave" />
+      <div className="wave">
+        <img src="/img/wave3.svg" alt="wave" />
+      </div>
 
       <div className="pagePanel">
         <div className="contentContainer orange"></div>

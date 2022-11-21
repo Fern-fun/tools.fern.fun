@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./JsonViewer.scss";
-import Modal from "../Modal/Modal";
 
 const isString = (val) => {
   return typeof val === "string";

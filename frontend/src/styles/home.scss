@@ -7,6 +7,14 @@
   display: grid;
   grid-template-rows: 400px auto minmax(500px, auto);
 
+  .wave {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-content: flex-end;
+  }
+
   .homeTitle {
     display: flex;
     justify-content: center;
