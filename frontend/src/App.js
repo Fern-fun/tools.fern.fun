@@ -1,3 +1,5 @@
+import React from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Css from "./page/Css/Css";
@@ -7,11 +9,38 @@ import Html from "./page/Html/Html";
 import Py from "./page/Py/Py";
 import Sql from "./page/Sql/Sql";
 import Json from "./page/Json/Json";
+import Login from "./components/Login/Login";
+import Signup from "./components/Login/Signup";
+import TermsofService from "./page/TermsofService/TermsofService";
+import Account from "./page/Account/Account";
+import CookiePolicy from "./page/CookiePolicy/CookiePolicy";
 
 function App() {
+  const [token, setToken] = React.useState(localStorage.getItem("session"));
+
+  if (!token) {
+    return (
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route
+            path="*"
+            element={<Login token={token} setToken={setToken} />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup token={token} setToken={setToken} />}
+          />
+          <Route path="/terms-of-service" element={<TermsofService />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar token={token} setToken={setToken} />
       <Routes>
         <Route index element={<Home />} />
         <Route path="*" element={<Home />} />
@@ -21,6 +50,10 @@ function App() {
         <Route path="/py" element={<Py />} />
 
         <Route path="/json" element={<Json />} />
+
+        <Route path="/account" element={<Account />} />
+        <Route path="/terms-of-service" element={<TermsofService />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
       </Routes>
     </BrowserRouter>
   );

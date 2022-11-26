@@ -14,8 +14,6 @@ function Sql() {
       <div className="pagePanel">
         <div className="contentContainer red"></div>
       </div>
-
-      <Arrow />
     </div>
   );
 }

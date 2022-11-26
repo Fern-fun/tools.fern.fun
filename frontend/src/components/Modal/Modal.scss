@@ -12,9 +12,28 @@
   justify-content: center;
   align-items: center;
 
+  padding: 15px;
+
   div {
     display: grid;
     grid-template-rows: 1fr 1fr;
+  }
+
+  #red {
+    color: v.$homeFirstElementSecond;
+  }
+
+  #close {
+    img {
+      cursor: pointer;
+
+      transition: transform 0.4s ease-in-out;
+
+      &:hover {
+        transform: rotate(180deg);
+        transition: transform 0.4s ease-in-out;
+      }
+    }
   }
 }
 
@@ -67,5 +86,26 @@
     margin: 10px;
     color: #fff;
     resize: none;
+  }
+
+  #g-bnt {
+    border-color: v.$homeFirstElement !important;
+
+    &:hover {
+      background: rgba($color: v.$homeFirstElement, $alpha: 0.6) !important;
+      color: #fff;
+    }
+  }
+
+  #r-bnt {
+    border-color: v.$homeFirstElementSecond !important;
+
+    &:hover {
+      background: rgba(
+        $color: v.$homeFirstElementSecond,
+        $alpha: 0.6
+      ) !important;
+      color: #fff;
+    }
   }
 }

@@ -73,8 +73,6 @@ function Home() {
         </div>
       </div>
 
-      <Arrow />
-
       <div className="homeContent">
         <div className="homeContentElement hc-f yellow">
           <div id="title" style={{ marginTop: "50px" }}>

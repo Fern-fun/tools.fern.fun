@@ -1,0 +1,33 @@
+@use "./variables.scss" as v;
+
+.codePanel {
+  margin-top: 10px;
+  display: flex;
+
+  flex-direction: column;
+
+  #copy {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      border: 2px solid v.$secondary;
+      border-radius: 8px;
+
+      color: v.$color;
+      padding: 10px;
+
+      transition: background-color 0.4s ease-in-out;
+
+      &:hover {
+        background-color: rgba($color: v.$secondary, $alpha: 0.2);
+      }
+    }
+  }
+}

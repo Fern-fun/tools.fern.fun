@@ -10,6 +10,15 @@ function GridGenerator() {
   const [columnGap, setColumnGap] = React.useState(0);
   const [rowGap, setRowGap] = React.useState(0);
 
+  const [code, setCode] = React.useState(
+    `grid-template-columns: repeat(${columns}, 1fr);\ngrid-template-rows: repeat(${rows}, 1fr);\ngrid-column-gap: ${columnGap}px;\ngrid-row-gap: ${rowGap}px;`
+  );
+
+  React.useEffect(() => {
+    setCode(
+      `grid-template-columns: repeat(${columns}, 1fr);\ngrid-template-rows: repeat(${rows}, 1fr);\ngrid-column-gap: ${columnGap}px;\ngrid-row-gap: ${rowGap}px;`
+    );
+  }, [rows, columns, columnGap, rowGap]);
   return (
     <>
       <div className="pagePanelTitle">
@@ -63,12 +72,14 @@ function GridGenerator() {
             <div key={Math.random()}></div>
           ))}
         </div>
-        <CodeBlock
-          text={`grid-template-columns: repeat(${columns}, 1fr);\ngrid-template-rows: repeat(${rows}, 1fr);\ngrid-column-gap: ${columnGap}px;\ngrid-row-gap: ${rowGap}px;`}
-          language={"css"}
-          theme={dracula}
-          codeBlock
-        />
+        <div className="codePanel">
+          <div id="copy">
+            <button onClick={(e) => navigator.clipboard.writeText(code)}>
+              Coppy
+            </button>
+          </div>
+          <CodeBlock text={code} language={"css"} theme={dracula} codeBlock />
+        </div>
       </div>
     </>
   );

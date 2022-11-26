@@ -9,6 +9,15 @@ function TextShadowGenerator() {
   const [blur, setBlur] = React.useState(0);
   const [color, setColor] = useColor("hex", "#121212");
 
+  const [code, setCode] = React.useState(
+    `text-shadow: ${horizontal}px ${vertical}px ${blur}px ${color.hex};`
+  );
+
+  React.useEffect(() => {
+    setCode(
+      `text-shadow: ${horizontal}px ${vertical}px ${blur}px ${color.hex};`
+    );
+  }, [horizontal, vertical, blur]);
   return (
     <>
       <div className="pagePanelTitle">
@@ -70,12 +79,14 @@ function TextShadowGenerator() {
             Text shadow
           </span>
         </div>
-        <CodeBlock
-          text={`text-shadow: ${horizontal}px ${vertical}px ${blur}px ${color.hex};`}
-          language={"css"}
-          theme={dracula}
-          codeBlock
-        />
+        <div className="codePanel">
+          <div id="copy">
+            <button onClick={(e) => navigator.clipboard.writeText(code)}>
+              Coppy
+            </button>
+          </div>
+          <CodeBlock text={code} language={"css"} theme={dracula} codeBlock />
+        </div>
       </div>
     </>
   );

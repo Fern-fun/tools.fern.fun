@@ -19,8 +19,6 @@ function Html() {
           <TableGenerator />
         </div>
       </div>
-
-      <Arrow />
     </div>
   );
 }

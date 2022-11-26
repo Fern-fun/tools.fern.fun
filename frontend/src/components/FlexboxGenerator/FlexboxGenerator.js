@@ -10,6 +10,9 @@ function FlexboxGenerator() {
   const [justifyContent, setJustifyContent] = React.useState("flex-start");
   const [alignItems, setAlignItems] = React.useState("flex-start");
   const [alignContent, setAlignContent] = React.useState("flex-start");
+  const [flexCode, setFlexCode] = React.useState(
+    `display: ${display};\nflex-direction: ${flexDirection};\nflex-wrap: ${flexWrap};\njustify-content: ${justifyContent};\nalign-items: ${alignItems};\nalign-content: ${alignContent};`
+  );
 
   const [box, setBox] = React.useState(2);
   const [board, setBoard] = React.useState([]);
@@ -33,6 +36,19 @@ function FlexboxGenerator() {
       ))
     );
   }, [box]);
+
+  React.useEffect(() => {
+    setFlexCode(
+      `display: ${display};\nflex-direction: ${flexDirection};\nflex-wrap: ${flexWrap};\njustify-content: ${justifyContent};\nalign-items: ${alignItems};\nalign-content: ${alignContent};`
+    );
+  }, [
+    display,
+    flexDirection,
+    flexWrap,
+    justifyContent,
+    alignItems,
+    alignContent,
+  ]);
 
   return (
     <>
@@ -129,12 +145,19 @@ function FlexboxGenerator() {
           {board}
         </div>
         <div>
-          <CodeBlock
-            text={`display: ${display};\nflex-direction: ${flexDirection};\nflex-wrap: ${flexWrap};\njustify-content: ${justifyContent};\nalign-items: ${alignItems};\nalign-content: ${alignContent};`}
-            language={"css"}
-            theme={dracula}
-            codeBlock
-          />
+          <div className="codePanel">
+            <div id="copy">
+              <button onClick={(e) => navigator.clipboard.writeText(flexCode)}>
+                Coppy
+              </button>
+            </div>
+            <CodeBlock
+              text={flexCode}
+              language={"css"}
+              theme={dracula}
+              codeBlock
+            />
+          </div>
         </div>
       </div>
     </>

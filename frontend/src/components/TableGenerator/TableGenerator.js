@@ -14,12 +14,10 @@ function TableGenerator() {
       });
       table += "  </tr>\n</table>";
 
-      navigator.clipboard.writeText(table);
       setTable(table);
     } else {
       table += `      <th>${titles.trim().replace(" ", "")}</th>\n`;
       table += "  </tr>\n</table>";
-      navigator.clipboard.writeText(table);
       setTable(table);
     }
   };
@@ -48,7 +46,14 @@ function TableGenerator() {
       </div>
 
       <div id="output">
-        <CodeBlock text={table} language={"html"} theme={dracula} codeBlock />
+        <div className="codePanel">
+          <div id="copy">
+            <button onClick={(e) => navigator.clipboard.writeText(table)}>
+              Coppy
+            </button>
+          </div>
+          <CodeBlock text={table} language={"html"} theme={dracula} codeBlock />
+        </div>
       </div>
     </>
   );

@@ -16,8 +16,6 @@ function Py() {
       <div className="pagePanel">
         <div className="contentContainer orange"></div>
       </div>
-
-      <Arrow />
     </div>
   );
 }

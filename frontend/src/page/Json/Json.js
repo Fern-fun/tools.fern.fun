@@ -19,8 +19,6 @@ function Json() {
           <JsonViewer />
         </div>
       </div>
-
-      <Arrow />
     </div>
   );
 }

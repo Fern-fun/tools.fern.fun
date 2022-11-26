@@ -8,6 +8,16 @@ function BorderRadiusGenerator() {
   const [bottomLeft, setBottomLeft] = React.useState(0);
   const [bottomRight, setBottomRight] = React.useState(0);
 
+  const [code, setCode] = React.useState(
+    `border-radius: ${topLeft}px ${topRight}px ${bottomLeft}px ${bottomRight}px;`
+  );
+
+  React.useEffect(() => {
+    setCode(
+      `border-radius: ${topLeft}px ${topRight}px ${bottomLeft}px ${bottomRight}px;`
+    );
+  }, [topLeft, topRight, bottomLeft, bottomRight]);
+
   return (
     <>
       <div className="pagePanelTitle">
@@ -84,13 +94,14 @@ function BorderRadiusGenerator() {
             }}
           ></div>
         </div>
-
-        <CodeBlock
-          text={`border-radius: ${topLeft}px ${topRight}px ${bottomLeft}px ${bottomRight}px;`}
-          language={"css"}
-          theme={dracula}
-          codeBlock
-        />
+        <div className="codePanel">
+          <div id="copy">
+            <button onClick={(e) => navigator.clipboard.writeText(code)}>
+              Coppy
+            </button>
+          </div>
+          <CodeBlock text={code} language={"css"} theme={dracula} codeBlock />
+        </div>
       </div>
     </>
   );

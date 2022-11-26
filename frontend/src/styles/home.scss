@@ -2,13 +2,13 @@
 
 .homePanel {
   width: 100%;
+  overflow-x: hidden;
   height: 100vh;
 
   display: grid;
   grid-template-rows: 400px auto minmax(500px, auto);
 
   .wave {
-    overflow: hidden;
     height: 100%;
     width: 100%;
     display: flex;

@@ -5,6 +5,9 @@
 @import url("./navbar.scss");
 @import url("./home.scss");
 @import url("./pages.scss");
+@import url("./loginPanel.scss");
+@import url("./account.scss");
+@import url("./code.scss");
 
 * {
   box-sizing: border-box;
@@ -36,4 +39,8 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: v.$secondary;
+}
+
+.c-secondary {
+  color: v.$secondary;
 }

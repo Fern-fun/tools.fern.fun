@@ -10,6 +10,13 @@ function Modal(props) {
       style={visable ? { display: "flex" } : { display: "none" }}
     >
       <div>
+        <div style={{ justifyContent: "flex-end" }} id="close">
+          <img
+            src="/img/close.svg"
+            alt="close"
+            onClick={(e) => setVisable(false)}
+          />
+        </div>
         <div className="modal-title">{title}</div>
 
         <div className="modal-content">{content}</div>

@@ -29,8 +29,6 @@ function Css() {
           <BorderRadiusGenerator />
         </div>
       </div>
-
-      <Arrow />
     </div>
   );
 }
