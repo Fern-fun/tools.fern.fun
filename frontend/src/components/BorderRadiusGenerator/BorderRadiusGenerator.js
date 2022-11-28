@@ -97,7 +97,7 @@ function BorderRadiusGenerator() {
         <div className="codePanel">
           <div id="copy">
             <button onClick={(e) => navigator.clipboard.writeText(code)}>
-              Coppy
+              Copy to clipboard
             </button>
           </div>
           <CodeBlock text={code} language={"css"} theme={dracula} codeBlock />

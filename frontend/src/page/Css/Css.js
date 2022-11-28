@@ -1,4 +1,6 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+
 import Arrow from "../../components/Arrow/Arrow";
 import BorderRadiusGenerator from "../../components/BorderRadiusGenerator/BorderRadiusGenerator";
 import FlexboxGenerator from "../../components/FlexboxGenerator/FlexboxGenerator";
@@ -8,9 +10,12 @@ import TextShadowGenerator from "../../components/TextShadowGenerator/TextShadow
 function Css() {
   return (
     <div className="homePanel">
+      <Helmet>
+        <title>Tools - CSS</title>
+      </Helmet>
       <div className="homeTitle">
         <div>
-          <span>Css</span>
+          <span>CSS</span>
         </div>
       </div>
       <img src="/img/wave2.svg" alt="wave" />

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.35251266.css",
-    "main.js": "/static/js/main.b5bb5992.js",
+    "main.css": "/static/css/main.d36eca8a.css",
+    "main.js": "/static/js/main.d4d8e6ac.js",
     "react-syntax-highlighter/refractor-core-import.js": "/static/js/react-syntax-highlighter/refractor-core-import.c5ee486f.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/static/js/react-syntax-highlighter_languages_refractor_abap.b8c6f26b.chunk.js",
     "react-syntax-highlighter_languages_refractor_actionscript.js": "/static/js/react-syntax-highlighter_languages_refractor_actionscript.7029d2ca.chunk.js",
@@ -155,8 +155,8 @@
     "react-syntax-highlighter_languages_refractor_xquery.js": "/static/js/react-syntax-highlighter_languages_refractor_xquery.749f4584.chunk.js",
     "react-syntax-highlighter_languages_refractor_yaml.js": "/static/js/react-syntax-highlighter_languages_refractor_yaml.3826e5f1.chunk.js",
     "index.html": "/index.html",
-    "main.35251266.css.map": "/static/css/main.35251266.css.map",
-    "main.b5bb5992.js.map": "/static/js/main.b5bb5992.js.map",
+    "main.d36eca8a.css.map": "/static/css/main.d36eca8a.css.map",
+    "main.d4d8e6ac.js.map": "/static/js/main.d4d8e6ac.js.map",
     "refractor-core-import.c5ee486f.chunk.js.map": "/static/js/react-syntax-highlighter/refractor-core-import.c5ee486f.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.b8c6f26b.chunk.js.map": "/static/js/react-syntax-highlighter_languages_refractor_abap.b8c6f26b.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_actionscript.7029d2ca.chunk.js.map": "/static/js/react-syntax-highlighter_languages_refractor_actionscript.7029d2ca.chunk.js.map",
@@ -311,7 +311,7 @@
     "react-syntax-highlighter_languages_refractor_yaml.3826e5f1.chunk.js.map": "/static/js/react-syntax-highlighter_languages_refractor_yaml.3826e5f1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.35251266.css",
-    "static/js/main.b5bb5992.js"
+    "static/css/main.d36eca8a.css",
+    "static/js/main.d4d8e6ac.js"
   ]
 }

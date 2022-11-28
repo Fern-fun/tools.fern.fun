@@ -1,16 +1,13 @@
 @use "./variables.scss" as v;
 
 .homePanel {
-  width: 100%;
   overflow-x: hidden;
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 400px auto minmax(500px, auto);
+  grid-template-rows: 300px auto minmax(500px, auto);
 
   .wave {
-    height: 100%;
-    width: 100%;
     display: flex;
     align-content: flex-end;
   }
@@ -26,7 +23,7 @@
 
       margin-top: 50px;
       span {
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: bold;
 
         sub {
@@ -37,22 +34,37 @@
         }
       }
     }
+
+    @media screen and (max-width: v.$mobile-width) {
+      max-width: 100vw;
+      div {
+        span {
+          font-size: 1.4rem;
+        }
+      }
+    }
   }
 
   .homeContent {
     display: grid;
+
+    @media screen and (max-width: v.$mobile-width) {
+      grid-template-rows: 100px auto;
+    }
+
+    max-width: 100vw;
 
     &:first-child {
       grid-template-rows: auto 500px;
     }
 
     .homeContentElement {
+      max-width: 100vw;
       display: flex;
       justify-content: center;
 
       #title {
         text-align: center;
-        width: 100%;
         height: fit-content;
         span {
           font-size: 1.4rem;
@@ -115,6 +127,7 @@
 
       #codeTag {
         margin: 15px;
+        max-width: 90vw;
       }
     }
 
@@ -133,6 +146,11 @@
     .yellow {
       background-color: v.$homeSecondElement;
       grid-template-rows: 100px 1fr;
+    }
+
+    .red {
+      background-color: v.$pagesRed;
+      color: v.$color;
     }
   }
 

@@ -1,9 +1,15 @@
 @use "./variables.scss" as v;
 
 .slider {
-  margin: 5px;
+  margin: 15px;
+
   -webkit-appearance: none;
   width: 100%;
+
+  @media screen and (max-width: v.$mobile-width) {
+    width: 90%;
+  }
+
   background: rgba($color: v.$secondary, $alpha: 0.5);
   border-radius: 5px;
   -webkit-transition: 0.2s;
@@ -16,8 +22,8 @@
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     background: v.$color;
     cursor: pointer;
     border-radius: 50%;

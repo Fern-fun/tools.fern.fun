@@ -2,11 +2,13 @@
 
 .codePanel {
   margin-top: 10px;
+  max-width: 95vw;
   display: flex;
 
   flex-direction: column;
 
   #copy {
+    margin-bottom: 10px;
     width: 100%;
     display: flex;
     justify-content: flex-end;

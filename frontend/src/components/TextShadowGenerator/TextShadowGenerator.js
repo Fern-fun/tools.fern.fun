@@ -70,9 +70,18 @@ function TextShadowGenerator() {
       </div>
 
       <div id="output">
-        <div style={{ minHeight: "200px", textAlign: "center" }}>
+        <div
+          style={{
+            minHeight: "200px",
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <span
             style={{
+              fontSize: "1.8rem",
               textShadow: `${horizontal}px ${vertical}px ${blur}px ${color.hex}`,
             }}
           >
@@ -82,7 +91,7 @@ function TextShadowGenerator() {
         <div className="codePanel">
           <div id="copy">
             <button onClick={(e) => navigator.clipboard.writeText(code)}>
-              Coppy
+              Copy to clipboard
             </button>
           </div>
           <CodeBlock text={code} language={"css"} theme={dracula} codeBlock />

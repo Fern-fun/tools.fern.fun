@@ -19,6 +19,19 @@ function GridGenerator() {
       `grid-template-columns: repeat(${columns}, 1fr);\ngrid-template-rows: repeat(${rows}, 1fr);\ngrid-column-gap: ${columnGap}px;\ngrid-row-gap: ${rowGap}px;`
     );
   }, [rows, columns, columnGap, rowGap]);
+
+  const columnHandler = (e) => {
+    if (e.target.value <= 30) {
+      setColumns(e.target.value);
+    }
+  };
+
+  const rowHandler = (e) => {
+    if (e.target.value <= 30) {
+      setRows(e.target.value);
+    }
+  };
+
   return (
     <>
       <div className="pagePanelTitle">
@@ -30,14 +43,14 @@ function GridGenerator() {
           <input
             type={"number"}
             name="columns"
-            onChange={(e) => setColumns(e.target.value)}
+            onChange={columnHandler}
             value={columns}
           />
           <label>Rows</label>
           <input
             type={"number"}
             name="rows"
-            onChange={(e) => setRows(e.target.value)}
+            onChange={rowHandler}
             value={rows}
           />
 
@@ -75,7 +88,7 @@ function GridGenerator() {
         <div className="codePanel">
           <div id="copy">
             <button onClick={(e) => navigator.clipboard.writeText(code)}>
-              Coppy
+              Copy to clipboard
             </button>
           </div>
           <CodeBlock text={code} language={"css"} theme={dracula} codeBlock />

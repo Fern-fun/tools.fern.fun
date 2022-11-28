@@ -50,20 +50,6 @@ function Navbar({ token, setToken }) {
           </div>
         </Link>
 
-        <Link to="/">
-          {/* <div>
-            <img src="/img/home.svg" alt="home" />
-            <span>Home</span>
-          </div> */}
-        </Link>
-
-        <Link to="/">
-          {/* <div>
-            <img src="/img/home.svg" alt="home" />
-            <span>Home</span>
-          </div> */}
-        </Link>
-
         <Link
           to="/account"
           onClick={(e) => (hamburger ? setHamburger((a) => !a) : null)}

@@ -10,13 +10,13 @@ function TableGenerator() {
     if (titles.includes(",")) {
       const args = titles.split(",");
       args.forEach((item) => {
-        table += `      <th>${item.trim().replace(" ", "")}</th>\n`;
+        table += `      <th>${item.trim()}</th>\n`;
       });
       table += "  </tr>\n</table>";
 
       setTable(table);
     } else {
-      table += `      <th>${titles.trim().replace(" ", "")}</th>\n`;
+      table += `      <th>${titles.trim()}</th>\n`;
       table += "  </tr>\n</table>";
       setTable(table);
     }
@@ -49,7 +49,7 @@ function TableGenerator() {
         <div className="codePanel">
           <div id="copy">
             <button onClick={(e) => navigator.clipboard.writeText(table)}>
-              Coppy
+              Copy to clipboard
             </button>
           </div>
           <CodeBlock text={table} language={"html"} theme={dracula} codeBlock />

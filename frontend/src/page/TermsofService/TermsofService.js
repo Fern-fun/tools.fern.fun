@@ -2,7 +2,7 @@ import React from "react";
 
 function TermsofService() {
   return (
-    <div style={{ padding: "150px" }}>
+    <div style={{ paddingTop: "150px" }}>
       <h1>Website Terms and Conditions of Use</h1>
 
       <h2>

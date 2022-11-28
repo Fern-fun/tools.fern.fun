@@ -84,10 +84,10 @@ function Account() {
                   <span id="red"> You want to continue?</span>
                 </span>
                 <div>
-                  <label>Passowrd: {error}</label>
+                  <label>Password: {error}</label>
                   <input
                     type="password"
-                    placeholder="Passowrd"
+                    placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required

@@ -1,8 +1,6 @@
 import React from "react";
 import { CodeBlock, dracula } from "react-code-blocks";
 
-import "./FlexboxGenerator.scss";
-
 function FlexboxGenerator() {
   const [display, setDisplay] = React.useState("flex");
   const [flexDirection, setFlexDirection] = React.useState("row");
@@ -18,12 +16,21 @@ function FlexboxGenerator() {
   const [board, setBoard] = React.useState([]);
 
   const addBoxHandler = () => {
-    setBox((e) => e + 1);
+    if (box < 6) {
+      setBox((e) => e + 1);
+    }
   };
 
+  const removeBoxHandler = () => {
+    if (box > 1) {
+      setBox((e) => e - 1);
+    }
+  };
+
+  //! Box controller
   React.useEffect(() => {
     setBoard(
-      [...Array(box)].map(() => (
+      [...Array(box)].map((i, a) => (
         <div
           key={Math.random()}
           style={{
@@ -32,11 +39,14 @@ function FlexboxGenerator() {
               "#" +
               ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, "0"),
           }}
-        ></div>
+        >
+          {a + 1}
+        </div>
       ))
     );
   }, [box]);
 
+  //! Update code in code tag every change
   React.useEffect(() => {
     setFlexCode(
       `display: ${display};\nflex-direction: ${flexDirection};\nflex-wrap: ${flexWrap};\njustify-content: ${justifyContent};\nalign-items: ${alignItems};\nalign-content: ${alignContent};`
@@ -125,7 +135,10 @@ function FlexboxGenerator() {
               </select>
             </div>
 
-            <button onClick={addBoxHandler}>Add</button>
+            <div id="bnt">
+              <button onClick={addBoxHandler}>Add</button>
+              <button onClick={removeBoxHandler}>Remove</button>
+            </div>
           </div>
         </div>
       </div>
@@ -148,7 +161,7 @@ function FlexboxGenerator() {
           <div className="codePanel">
             <div id="copy">
               <button onClick={(e) => navigator.clipboard.writeText(flexCode)}>
-                Coppy
+                Copy to clipboard
               </button>
             </div>
             <CodeBlock

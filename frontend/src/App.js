@@ -1,6 +1,8 @@
 import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 import Navbar from "./components/Navbar/Navbar";
 import Css from "./page/Css/Css";
 
@@ -14,6 +16,7 @@ import Signup from "./components/Login/Signup";
 import TermsofService from "./page/TermsofService/TermsofService";
 import Account from "./page/Account/Account";
 import CookiePolicy from "./page/CookiePolicy/CookiePolicy";
+import PrivacyPolicy from "./page/PrivacyPolicy/PrivacyPolicy";
 
 function App() {
   const [token, setToken] = React.useState(localStorage.getItem("session"));
@@ -22,6 +25,9 @@ function App() {
     return (
       <BrowserRouter>
         <Navbar />
+        <Helmet>
+          <title>Tools - Home</title>
+        </Helmet>
         <Routes>
           <Route index element={<Home />} />
           <Route
@@ -33,6 +39,8 @@ function App() {
             element={<Signup token={token} setToken={setToken} />}
           />
           <Route path="/terms-of-service" element={<TermsofService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </BrowserRouter>
     );
@@ -40,6 +48,9 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Helmet>
+        <title>Tools - Home</title>
+      </Helmet>
       <Navbar token={token} setToken={setToken} />
       <Routes>
         <Route index element={<Home />} />
@@ -54,6 +65,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/terms-of-service" element={<TermsofService />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </BrowserRouter>
   );

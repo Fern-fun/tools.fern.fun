@@ -2,7 +2,7 @@ import React from "react";
 
 function CookiePolicy() {
   return (
-    <div style={{ padding: "150px" }}>
+    <div style={{ paddingTop: "150px" }}>
       <h1>Cookie Policy for Fern Tools</h1>
 
       <p>
