@@ -2,8 +2,7 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import { CodeBlock, dracula } from "react-code-blocks";
 import { Link } from "react-router-dom";
-
-import Arrow from "../../components/Arrow/Arrow";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
   const [hoverTop, setHoverTop] = React.useState(50);
@@ -36,9 +35,8 @@ function Home() {
           </span>
         </div>
       </div>
-
+      <img src="/img/wave.svg" alt="wave" />
       <div className="homeContent">
-        <img src="/img/wave.svg" alt="wave" />
         <div className="homeContentElement hc-f green">
           <div id="title">
             <span>We provide some tools to improve your efficiently</span>
@@ -97,6 +95,8 @@ function Home() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "../../components/Modal/Modal";
 import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
+import Footer from "../../components/Footer/Footer";
 
 function Account() {
   const username = localStorage.getItem("username");
@@ -109,6 +110,9 @@ function Account() {
             Delete Account
           </button>
         </div>
+      </div>
+      <div id="footer">
+        <Footer />
       </div>
     </div>
   );

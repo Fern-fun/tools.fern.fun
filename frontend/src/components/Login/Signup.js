@@ -1,6 +1,7 @@
 import React from "react";
 import bcrypt from "bcryptjs";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 function Signup({ token, setToken }) {
   const [username, setUsername] = React.useState("");
@@ -170,6 +171,9 @@ function Signup({ token, setToken }) {
             </span>
           </div>
         </div>
+      </div>
+      <div id="footer">
+        <Footer />
       </div>
     </div>
   );

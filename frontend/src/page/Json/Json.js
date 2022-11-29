@@ -2,11 +2,12 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import Arrow from "../../components/Arrow/Arrow";
+import Footer from "../../components/Footer/Footer";
 import JsonViewer from "../../components/JsonViewer/JsonViewer";
 
 function Json() {
   return (
-    <div className="homePanel">
+    <div className="homePanel solo">
       <Helmet>
         <title>Tools - JSON</title>
       </Helmet>
@@ -24,6 +25,8 @@ function Json() {
           <JsonViewer />
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

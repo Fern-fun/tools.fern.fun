@@ -3,7 +3,6 @@
 .accountPanel {
   display: grid;
   grid-template-rows: 100px auto;
-
   .accountPanelTile {
     width: fit-content;
     margin: auto;
@@ -52,5 +51,11 @@
 
   #personalDetail {
     margin: 15px;
+  }
+
+  #footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
   }
 }

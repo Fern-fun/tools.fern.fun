@@ -1,11 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import Arrow from "../../components/Arrow/Arrow";
+import Footer from "../../components/Footer/Footer";
 
 function Py() {
   return (
-    <div className="homePanel">
+    <div className="homePanel solo">
       <Helmet>
         <title>Tools - Python</title>
       </Helmet>
@@ -21,6 +21,8 @@ function Py() {
       <div className="pagePanel">
         <div className="contentContainer orange"></div>
       </div>
+
+      <Footer />
     </div>
   );
 }

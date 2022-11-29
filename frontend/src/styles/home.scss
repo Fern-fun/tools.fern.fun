@@ -7,6 +7,10 @@
   display: grid;
   grid-template-rows: 300px auto minmax(500px, auto);
 
+  @media screen and (max-width: v.$mobile-width) {
+    grid-template-rows: 300px 100px repeat(2, minmax(550px, auto)) 100px;
+  }
+
   .wave {
     display: flex;
     align-content: flex-end;
@@ -62,6 +66,7 @@
       max-width: 100vw;
       display: flex;
       justify-content: center;
+      padding-bottom: 2rem;
 
       #title {
         text-align: center;
@@ -164,6 +169,14 @@
     animation-name: arrowAnim;
     animation-iteration-count: infinite;
     animation-duration: 1.5s;
+  }
+}
+
+.solo {
+  grid-template-rows: 300px auto minmax(550px, auto) 100px;
+
+  @media screen and (max-width: v.$mobile-width) {
+    grid-template-rows: 300px 100px minmax(550px, auto) 100px;
   }
 }
 

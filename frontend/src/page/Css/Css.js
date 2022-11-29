@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import Arrow from "../../components/Arrow/Arrow";
+import Footer from "../../components/Footer/Footer";
 import BorderRadiusGenerator from "../../components/BorderRadiusGenerator/BorderRadiusGenerator";
 import FlexboxGenerator from "../../components/FlexboxGenerator/FlexboxGenerator";
 import GridGenerator from "../../components/GridGenerator/GridGenerator";
@@ -18,8 +18,10 @@ function Css() {
           <span>CSS</span>
         </div>
       </div>
-      <img src="/img/wave2.svg" alt="wave" />
 
+      <div className="wave">
+        <img src="/img/wave2.svg" alt="wave" />
+      </div>
       <div className="pagePanel">
         <div className="contentContainer green">
           <FlexboxGenerator />
@@ -33,6 +35,8 @@ function Css() {
         <div className="contentContainer blue">
           <BorderRadiusGenerator />
         </div>
+
+        <Footer />
       </div>
     </div>
   );

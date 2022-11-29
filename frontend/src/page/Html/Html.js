@@ -2,11 +2,12 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import Arrow from "../../components/Arrow/Arrow";
+import Footer from "../../components/Footer/Footer";
 import TableGenerator from "../../components/TableGenerator/TableGenerator";
 
 function Html() {
   return (
-    <div className="homePanel">
+    <div className="homePanel solo">
       <Helmet>
         <title>Tools - HTML</title>
       </Helmet>
@@ -24,6 +25,8 @@ function Html() {
           <TableGenerator />
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
