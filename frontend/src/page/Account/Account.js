@@ -1,7 +1,6 @@
 import React from "react";
 import Modal from "../../components/Modal/Modal";
 import { useNavigate } from "react-router-dom";
-import bcrypt from "bcryptjs";
 import Footer from "../../components/Footer/Footer";
 
 function Account() {
@@ -31,35 +30,27 @@ function Account() {
   };
 
   const deleteAccountHandler = () => {
-    fetch(`https://api.fern.fun/fern/account/get/${username}`)
+    fetch(`https://api.fern.fun/fern/account/delete/`, {
+      method: "delete",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    })
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === "failure") {
-          setError("Wrong password");
+        if (data.status === "success") {
+          localStorage.removeItem("session");
+          localStorage.removeItem("username");
+          navigate("/");
+          window.location.reload(false);
+        } else {
+          setError(data.reason);
         }
-        bcrypt.compare(password, data.hash, function (err, res) {
-          if (res === true) {
-            fetch(
-              `https://api.fern.fun/fern/account/delete/${username}/${localStorage.getItem(
-                "session"
-              )}`,
-              {
-                method: "delete",
-              }
-            )
-              .then((res) => res.json())
-              .then((data) => {
-                if (data.status === "success") {
-                  localStorage.removeItem("session");
-                  localStorage.removeItem("username");
-                  navigate("/");
-                  window.location.reload(false);
-                } else {
-                  setError("Something went wrong");
-                }
-              });
-          }
-        });
       });
   };
 
@@ -85,7 +76,9 @@ function Account() {
                   <span id="red"> You want to continue?</span>
                 </span>
                 <div>
-                  <label>Password: {error}</label>
+                  <label>
+                    Password: <span id="red">{error}</span>
+                  </label>
                   <input
                     type="password"
                     placeholder="Password"

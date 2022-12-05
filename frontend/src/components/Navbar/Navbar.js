@@ -21,6 +21,11 @@ function Navbar({ token, setToken }) {
           localStorage.removeItem("username");
           window.location.reload(false);
         }
+      })
+      .catch((err) => {
+        localStorage.removeItem("session");
+        localStorage.removeItem("username");
+        window.location.reload(false);
       });
   }
 

@@ -17,8 +17,8 @@ function Signup({ token, setToken }) {
   const navigate = useNavigate();
 
   const signupHandler = () => {
-    if (username.length < 4) {
-      setErrorText("Username.length > 4");
+    if (username.length < 3) {
+      setErrorText("Username.length >= 3");
       return;
     }
 
@@ -36,54 +36,48 @@ function Signup({ token, setToken }) {
       return;
     }
 
-    bcrypt.hash(password, 10, function (err, hash) {
-      fetch("https://api.fern.fun/fern/account/create", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username,
-          password: hash,
-          email: email,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === "failure") {
-            setErrorText("Username already taken");
-          } else {
-            fetch(`https://api.fern.fun/fern/account/get/${username}`)
-              .then((res) => res.json())
-              .then((data) => {
-                if (data.status === "failure") {
-                  setErrorText("User not found");
-                } else {
-                  bcrypt.compare(password, data.hash, function (err, res) {
-                    if (res === false) {
-                      setErrorText("Wrong password");
-                    } else {
-                      fetch(
-                        `https://api.fern.fun/fern/account/get/session/${username}`
-                      )
-                        .then((res) => res.json())
-                        .then((data) => {
-                          localStorage.setItem(
-                            "session",
-                            data.session.split("|")[0]
-                          );
-                          localStorage.setItem("username", username);
-                          setToken(data.session.split("|")[0]);
-                          navigate("/");
-                        });
-                    }
-                  });
-                }
-              });
-          }
-        });
-    });
+    fetch("https://api.fern.fun/fern/account/create", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+        email: email,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status !== "success") {
+          setErrorText(data.reason);
+          return;
+        } else {
+          fetch(`https://api.fern.fun/fern/account/get/session/`, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username: username,
+              password: password,
+            }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.status === "failure") {
+                setErrorText(data.reason);
+              } else {
+                localStorage.setItem("session", data.session.split("|")[0]);
+                localStorage.setItem("username", username);
+                setToken(data.session.split("|")[0]);
+                navigate("/");
+              }
+            });
+        }
+      });
   };
 
   const onChangeUsername = (e) => {

@@ -41,6 +41,7 @@
 
       color: v.$color;
       padding: 15px;
+      width: 300px;
 
       transition: background-color 0.4s ease-in-out;
 
@@ -59,6 +60,8 @@
     }
 
     #error {
+      max-width: 300px;
+      text-align: left;
       margin: 10px;
       font-size: 0.8rem;
       color: v.$homeFirstElementSecond;

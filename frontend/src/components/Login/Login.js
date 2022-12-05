@@ -17,26 +17,26 @@ function Login({ token, setToken }) {
   const navigate = useNavigate();
 
   const loginHandler = () => {
-    fetch(`https://api.fern.fun/fern/account/get/${username}`)
+    fetch(`https://api.fern.fun/fern/account/get/session/`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "failure") {
-          setErrorText("User not found");
+          setErrorText(data.reason);
         } else {
-          bcrypt.compare(password, data.hash, function (err, res) {
-            if (res === false) {
-              setErrorText("Wrong password");
-            } else {
-              fetch(`https://api.fern.fun/fern/account/get/session/${username}`)
-                .then((res) => res.json())
-                .then((data) => {
-                  localStorage.setItem("session", data.session.split("|")[0]);
-                  localStorage.setItem("username", username);
-                  setToken(data.session.split("|")[0]);
-                  navigate("/");
-                });
-            }
-          });
+          localStorage.setItem("session", data.session.split("|")[0]);
+          localStorage.setItem("username", username);
+          setToken(data.session.split("|")[0]);
+          navigate("/");
         }
       });
   };
@@ -51,40 +51,35 @@ function Login({ token, setToken }) {
         if (data.status === "success") {
           setIsRecoveryCode(true);
           setErrorText("");
+          setPassword("");
         } else {
-          setErrorText("Worng email or username");
+          setErrorText("Wrong email or username");
           setDisBnt(false);
         }
       });
   };
 
   const changePassword = () => {
-    bcrypt.hash(password, 10, function (err, hash) {
-      fetch(`https://api.fern.fun/fern/account/change/password/${username}`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          recovery_code: recoveryCode,
-          password: hash,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === "failure") {
-            if (data.info) {
-              setErrorText(data.info);
-            } else {
-              setErrorText("something went wrong");
-            }
-          } else {
-            setForgotPassword(false);
-            setErrorText("");
-          }
-        });
-    });
+    fetch(`https://api.fern.fun/fern/account/change/password/${username}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        recovery_code: recoveryCode,
+        password: password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "failure") {
+          setErrorText(data.reason);
+        } else {
+          setForgotPassword(false);
+          setErrorText("");
+        }
+      });
   };
 
   return (
@@ -120,7 +115,10 @@ function Login({ token, setToken }) {
               <a id="login">
                 Not on Tools yet? <a href="/signup">Sign up</a>
               </a>
-              <a id="login" onClick={(e) => setForgotPassword(true)}>
+              <a
+                id="login"
+                onClick={(e) => (setForgotPassword(true), setErrorText(""))}
+              >
                 <a>Forgot Password?</a>
               </a>
             </div>
