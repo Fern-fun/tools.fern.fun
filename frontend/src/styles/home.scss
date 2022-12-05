@@ -8,12 +8,13 @@
   grid-template-rows: 300px auto minmax(500px, auto);
 
   @media screen and (max-width: v.$mobile-width) {
-    grid-template-rows: 300px 100px repeat(2, minmax(550px, auto)) 100px;
+    grid-template-rows: 300px auto repeat(2, minmax(550px, auto)) 100px;
   }
 
   .wave {
-    display: flex;
-    align-content: flex-end;
+    img {
+      height: 100%;
+    }
   }
 
   .homeTitle {
@@ -176,7 +177,7 @@
   grid-template-rows: 300px auto minmax(550px, auto) 100px;
 
   @media screen and (max-width: v.$mobile-width) {
-    grid-template-rows: 300px 100px minmax(550px, auto) 100px;
+    grid-template-rows: 300px auto minmax(550px, auto) 100px;
   }
 }
 

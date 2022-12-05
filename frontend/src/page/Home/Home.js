@@ -35,7 +35,9 @@ function Home() {
           </span>
         </div>
       </div>
-      <img src="/img/wave.svg" alt="wave" />
+      <div className="wave">
+        <img src="/img/wave.svg" alt="wave" />
+      </div>
       <div className="homeContent">
         <div className="homeContentElement hc-f green">
           <div id="title">
