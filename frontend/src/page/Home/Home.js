@@ -53,7 +53,7 @@ function Home() {
             </Link>
             <Link to="/css">
               <img
-                alt="html"
+                alt="css"
                 src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
               />
               <span>CSS</span>
@@ -62,12 +62,9 @@ function Home() {
               <img alt="json" src="/img/json.svg" />
               <span>JSON</span>
             </Link>
-            <Link to="/py">
-              <img
-                alt="py"
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-              />
-              <span>Python</span>
+            <Link to="/colors">
+              <img alt="colors" src="/img/palette.svg" />
+              <span>Colors</span>
             </Link>
           </div>
         </div>
@@ -88,7 +85,7 @@ function Home() {
             <CodeBlock
               style={{ marginBottom: "15px" }}
               text={
-                "#centerDiv {\n  position: relative;\n}\n#centerDiv div {\n position: absolute;\n top: 50%;\n left: 50%;\n transform: translate(-50%, -50%);\n}"
+                "#parent {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}"
               }
               language={"css"}
               theme={dracula}

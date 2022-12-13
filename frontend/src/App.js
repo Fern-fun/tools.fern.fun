@@ -17,6 +17,7 @@ import TermsofService from "./page/TermsofService/TermsofService";
 import Account from "./page/Account/Account";
 import CookiePolicy from "./page/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "./page/PrivacyPolicy/PrivacyPolicy";
+import Colors from "./page/Colors/Colors";
 
 function App() {
   const [token, setToken] = React.useState(localStorage.getItem("session"));
@@ -38,6 +39,15 @@ function App() {
             path="/signup"
             element={<Signup token={token} setToken={setToken} />}
           />
+
+          <Route path="/html" element={<Html />} />
+          <Route path="/css" element={<Css />} />
+          <Route path="/sql" element={<Sql />} />
+          <Route path="/py" element={<Py />} />
+
+          <Route path="/json" element={<Json />} />
+          <Route path="/colors" element={<Colors />} />
+
           <Route path="/terms-of-service" element={<TermsofService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -61,6 +71,7 @@ function App() {
         <Route path="/py" element={<Py />} />
 
         <Route path="/json" element={<Json />} />
+        <Route path="/colors" element={<Colors />} />
 
         <Route path="/account" element={<Account />} />
         <Route path="/terms-of-service" element={<TermsofService />} />
