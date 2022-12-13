@@ -6,6 +6,7 @@ import BorderRadiusGenerator from "../../components/BorderRadiusGenerator/Border
 import FlexboxGenerator from "../../components/FlexboxGenerator/FlexboxGenerator";
 import GridGenerator from "../../components/GridGenerator/GridGenerator";
 import TextShadowGenerator from "../../components/TextShadowGenerator/TextShadowGenerator";
+import ColorBlender from "../../components/ColorBlender/ColorBlender";
 
 function Css() {
   return (
@@ -34,6 +35,9 @@ function Css() {
         </div>
         <div className="contentContainer blue">
           <BorderRadiusGenerator />
+        </div>
+        <div className="contentContainer purple">
+          <ColorBlender />
         </div>
 
         <Footer />
