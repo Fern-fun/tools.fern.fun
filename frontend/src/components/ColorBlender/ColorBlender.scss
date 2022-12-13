@@ -1,0 +1,51 @@
+@use "../../styles/variables.scss" as v;
+
+.colors {
+    display: inline-block;
+}
+.colorPicker {
+    border-color: v.$secondary;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+}
+.colorCode {
+    border-color: v.$secondary;
+    height: 30px;
+    width: 190px !important;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.colorBox {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+}
+.midpointsNumber {
+    border-color: v.$secondary;
+    height: 30px;
+    width: 90px !important;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+.blendButton {
+    margin-top: 15px;
+    margin-left: 40px;
+    width: 360px !important;
+}
+.intermediateColor {
+    display: inline-block;
+    width: 100%;
+
+    p {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    span {
+        margin-left: 10px;
+    }
+}
