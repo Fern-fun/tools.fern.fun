@@ -180,7 +180,7 @@
   grid-template-rows: 300px auto fit-content(80%) 100px;
 
   @media screen and (max-width: v.$mobile-width) {
-    grid-template-rows: 300px auto minmax(550px, auto) 100px;
+    grid-template-rows: 300px auto fit-content(80%) 100px;
   }
 }
 

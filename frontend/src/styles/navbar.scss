@@ -5,6 +5,7 @@
   position: fixed;
   background: v.$navbarBackground;
   width: 100%;
+  z-index: 100;
 
   @media screen and (min-width: v.$mobile-width) {
     .hamburger {
