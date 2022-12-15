@@ -1,22 +1,17 @@
 import React from "react";
 import { CodeBlock, dracula } from "react-code-blocks";
-import { ColorPicker, useColor } from "react-color-palette";
-import "react-color-palette/lib/css/styles.css";
 
 function TextShadowGenerator() {
   const [horizontal, setHorizontal] = React.useState(1);
   const [vertical, setVertical] = React.useState(1);
   const [blur, setBlur] = React.useState(0);
-  const [color, setColor] = useColor("hex", "#121212");
 
   const [code, setCode] = React.useState(
-    `text-shadow: ${horizontal}px ${vertical}px ${blur}px ${color.hex};`
+    `text-shadow: ${horizontal}px ${vertical}px ${blur}px #121212;`
   );
 
   React.useEffect(() => {
-    setCode(
-      `text-shadow: ${horizontal}px ${vertical}px ${blur}px ${color.hex};`
-    );
+    setCode(`text-shadow: ${horizontal}px ${vertical}px ${blur}px #121212;`);
   }, [horizontal, vertical, blur]);
   return (
     <>
@@ -82,7 +77,7 @@ function TextShadowGenerator() {
           <span
             style={{
               fontSize: "1.8rem",
-              textShadow: `${horizontal}px ${vertical}px ${blur}px ${color.hex}`,
+              textShadow: `${horizontal}px ${vertical}px ${blur}px #121212`,
             }}
           >
             Text shadow

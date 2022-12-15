@@ -1,7 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import Arrow from "../../components/Arrow/Arrow";
 import Footer from "../../components/Footer/Footer";
 import JsonViewer from "../../components/JsonViewer/JsonViewer";
 

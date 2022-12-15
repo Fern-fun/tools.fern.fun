@@ -1,5 +1,4 @@
 import React from "react";
-import bcrypt from "bcryptjs";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 
