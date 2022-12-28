@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 15.12.2022
+
+### Major changes
+
+- Add midpoints to color blender
+
+### Changed features
+
+### Fixed bugs
+
 ## [0.1.2] - 15.12.2022
 
 ### Major changes

@@ -130,6 +130,13 @@ function ColorBlender() {
     Blend();
   };
 
+  const midpointsInput = (e) => {
+    if (e.target.value < 100 && e.target.value > 0) {
+      setMidpoints(e.target.value);
+      Blend();
+    }
+  };
+
   React.useEffect(() => {
     if (localStorage.getItem("color1") && localStorage.getItem("color2")) {
       setHexValue(localStorage.getItem("color1"));
@@ -243,6 +250,18 @@ function ColorBlender() {
                   color={secondHexValue}
                   onChange={colorTwoInput}
                 />
+              </div>
+            </div>
+
+            <div id="color">
+              <label>Midpoints</label>
+              <div id="midpoints">
+                <input
+                  type="number"
+                  value={midpoints}
+                  onChange={midpointsInput}
+                />
+                <img alt="refresh" src={"/img/refresh.svg"} onClick={Blend} />
               </div>
             </div>
           </div>

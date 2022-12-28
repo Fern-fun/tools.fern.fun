@@ -21,6 +21,26 @@
   #color {
     margin: 20px;
   }
+
+  #midpoints {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 30px;
+
+      margin: 0 10px;
+      cursor: pointer;
+
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
 
 .colorBlendHexPicker {
