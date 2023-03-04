@@ -12,6 +12,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+      - name: Change dir
+        run: cd frontend/
       - name: Install
         run: npm install
       - name: Build Webapp
