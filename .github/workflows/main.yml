@@ -12,12 +12,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Change dir
-        run: cd frontend/
       - name: Install
+        working-directory: ./frontend
         run: npm install
       - name: Build Webapp
+        working-directory: ./frontend
         run:  CI= npm run build
+      - name: Move build
+        run: sudo mv ./frontend/build ./
       - name: List /build
         run: ls ./build
       - name: Deploy app
